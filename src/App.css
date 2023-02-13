@@ -1,18 +1,32 @@
 .wrapper {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-#number1 {
-  grid-column: 1/100;
+.vertical-container {
+  display: flex;
+  width: 20vw;
+  height: 20vw;
 }
 
-#number2 {
-  grid-column: 1/100;
-  background-color: red;
-  height: 10px;
+.vertical-container div {
+  height: 100%;
+  flex-grow: 1;
 }
 
-#number3 {
-  grid-column: 1/100;
-  background-color: red;
+.horizontal-container {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  height: 20vw;
+}
+
+.horizontal-container div {
+  width: 100%;
+  flex-grow: 1;
+}
+
+.next-color {
+  width: 80px;
+  height: 15px;
 }

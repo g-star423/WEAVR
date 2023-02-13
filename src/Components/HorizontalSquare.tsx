@@ -1,16 +1,14 @@
+interface Props {
+    colors: string[]
+}
 
-function HorizontalSquare() {
+function HorizontalSquare({ colors }: Props) {
 
-    const testColors = [
-        "#32a852",
-        "#1885c9",
-        "#1824c9",
-        "#32a852",
-        "#1885c9",
-        "#1824c9",
-    ]
     return (
         <div className="horizontal-container">
+            {colors.map(color => (
+                <div style={{ backgroundColor: color }}></div>
+            ))}
         </div>
     )
 }

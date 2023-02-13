@@ -1,23 +1,14 @@
 
-function VerticalSquare() {
+interface Props {
+    colors: string[]
+}
 
-    const testColors = [
-        "#32a852",
-        "#1885c9",
-        "#1824c9",
-        "#32a852",
-        "#1885c9",
-        "#1824c9",
-    ]
-    function makeDivs(arr: string[]) {
-        for (let i = 0; i < arr.length; i++) {
-            return <div>asdfff</div>
-        }
-    }
+function VerticalSquare({ colors }: Props) {
+
     return (
         <div className="vertical-container">
-            {testColors.map(color => (
-                <div style={{ backgroundColor: color }}>{color}</div>
+            {colors.map(color => (
+                <div style={{ backgroundColor: color }}></div>
             ))}
         </div>
     )
