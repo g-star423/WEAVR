@@ -62,5 +62,27 @@ h5 {
 
 p span {
   font-family: 'Pacifico', cursive;
+}
+
+#footer {
   text-align: center;
+}
+
+@media (min-width: 600px) {
+
+  .wrapper {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .vertical-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .horizontal-container {
+    width: 100px;
+    height: 100px;
+  }
 }

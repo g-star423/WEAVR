@@ -57,7 +57,7 @@ function App() {
         })}
       </div>
       <AddWeave getPatterns={getPatterns}></AddWeave>
-      <p>© Greg Shoup 2023 -- ❤️❤️❤️ <span>for Diane</span></p>
+      <p id='footer'>© Greg Shoup 2023 -- ❤️❤️❤️ <span>for Diane</span></p>
     </>
   );
 }
