@@ -35,7 +35,7 @@ function App() {
   // "multiply" so there is the correct number of items to map over??
 
   function getPatterns() {
-    axios.get('http://localhost:3000/getpatterns').then((response) => {
+    axios.get('https://quiltr-api.herokuapp.com/getpatterns').then((response) => {
       setAllPatterns(response.data)
     })
   }
@@ -46,8 +46,7 @@ function App() {
 
   return (
     <>
-      <h1>QUILTR</h1>
-      <h5>Fabric of the world.</h5>
+      <h1>Quiltr</h1>
       <div className='wrapper'>
         {allPatterns.map((pattern, index) => {
           if (index % 2 === 0) {
@@ -57,8 +56,8 @@ function App() {
           }
         })}
       </div>
-      <AddWeave></AddWeave>
-      <p>© Greg Shoup 2023 -- ❤️ for Diane</p>
+      <AddWeave getPatterns={getPatterns}></AddWeave>
+      <p>© Greg Shoup 2023 -- ❤️❤️❤️ <span>for Diane</span></p>
     </>
   );
 }

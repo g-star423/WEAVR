@@ -5,7 +5,12 @@ import axios from "axios"
 import { Button, Modal, Box } from "@mui/material"
 import { width } from "@mui/system"
 
-function AddWeave() {
+interface Props {
+    getPatterns: Function
+}
+
+function AddWeave({ getPatterns }: Props) {
+
 
     const [color, setColor] = useState("#aabbcc")
 
@@ -26,10 +31,11 @@ function AddWeave() {
     }
 
     function sendPattern() {
-        axios.post('http://localhost:3000/newpattern', { colors: colorArray }).then((response) => {
+        axios.post('https://quiltr-api.herokuapp.com/newpattern', { colors: colorArray }).then((response) => {
             console.log(response)
             reset()
             handleClose()
+            getPatterns()
         })
     }
 
@@ -51,16 +57,21 @@ function AddWeave() {
 
     return (
         <>
-            <Button variant="contained" onClick={handleOpen}>Add Your Pattern</Button>
+            <div className="add-weave">
+                <Button sx={{ mt: 2 }} variant="contained" onClick={handleOpen}>Add Your Pattern</Button>
+            </div>
             <Modal open={open}
                 onClose={handleClose}>
                 <Box sx={style}>
                     <div className="add-weave">
-                        <HexColorPicker color={color} onChange={setColor}></HexColorPicker>
-                        <div style={{ backgroundColor: color }} className="next-color"></div>
-                        <Button variant="contained" onClick={addColor}>Add Color</Button>
-                        <Button variant="outlined" onClick={reset}>Reset</Button>
+                        <div className="color-picker-container">
+                            <HexColorPicker color={color} onChange={setColor}></HexColorPicker>
+                            <div style={{ backgroundColor: color }} className="next-color"></div>
+                        </div>
+                        <Button sx={{ mr: 2, mt: 1 }} variant="contained" onClick={addColor}>Add Color</Button>
+                        <Button sx={{ mt: 1 }} variant="outlined" onClick={reset}>Reset</Button>
                         {tooMany ? <p>too many colors!</p> : null}
+                        <p>Your pattern:</p>
                         <VerticalSquare colors={colorArray}></VerticalSquare>
                         <Button variant="contained" onClick={sendPattern}>Submit Pattern</Button>
                     </div>

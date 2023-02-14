@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 .wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -27,12 +29,38 @@
 }
 
 .next-color {
-  width: 80px;
-  height: 15px;
+  width: 80vw;
+  height: 20px;
+  border-radius: 5px;
 }
 
 .add-weave .vertical-container {
   width: 80vw;
 }
 
-.add-weave {}
+.add-weave {
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+  font-size: 3em;
+}
+
+h5 {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+}
+
+.color-picker-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+p span {
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+}
