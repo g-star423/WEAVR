@@ -6,8 +6,8 @@ function HorizontalSquare({ colors }: Props) {
 
     return (
         <div className="horizontal-container">
-            {colors.map(color => (
-                <div style={{ backgroundColor: color }}></div>
+            {colors.map((color, index) => (
+                <div key={index} style={{ backgroundColor: color }}></div>
             ))}
         </div>
     )
