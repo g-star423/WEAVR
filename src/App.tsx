@@ -9,8 +9,14 @@ import axios from 'axios';
 function App() {
 
   interface ReturnedPattern {
-    colors: string[]
+    colors: string[],
+    country: string,
+    region: string,
+    city: string,
+    createdAt: string
   }
+
+
   const testColors = [ //fifteen colors
     "#32a852",
     "#1885c9",
@@ -40,6 +46,12 @@ function App() {
     })
   }
 
+  // function getPatterns() { // for local testing
+  //   axios.get('http://localhost:3000/getpatterns').then((response) => {
+  //     setAllPatterns(response.data)
+  //   })
+  // }
+
   useEffect(() => {
     getPatterns()
   }, [])
@@ -50,9 +62,9 @@ function App() {
       <div className='wrapper'>
         {allPatterns.map((pattern, index) => {
           if (index % 2 === 0) {
-            return (<VerticalSquare colors={pattern.colors} />)
+            return (<VerticalSquare key={index} pattern={pattern} colors={pattern.colors} />)
           } else {
-            return (<HorizontalSquare colors={pattern.colors} />)
+            return (<HorizontalSquare key={index} pattern={pattern} colors={pattern.colors} />)
           }
         })}
       </div>

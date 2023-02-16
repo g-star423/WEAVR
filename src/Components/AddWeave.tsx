@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { HexColorPicker } from "react-colorful"
-import VerticalSquare from "./VerticalSquare"
+import TempVerticalSquare from "./AddWeaveVerticalSquare"
 import axios from "axios"
 import { Button, Modal, Box } from "@mui/material"
 import { width } from "@mui/system"
@@ -39,6 +39,15 @@ function AddWeave({ getPatterns }: Props) {
         })
     }
 
+    // function sendPattern() { // for local testing
+    //     axios.post('http://localhost:3000/newpattern', { colors: colorArray }).then((response) => {
+    //         console.log(response)
+    //         reset()
+    //         handleClose()
+    //         getPatterns()
+    //     })
+    // }
+
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -72,7 +81,7 @@ function AddWeave({ getPatterns }: Props) {
                         <Button sx={{ mt: 1 }} variant="outlined" onClick={reset}>Reset</Button>
                         {tooMany ? <p>too many colors!</p> : null}
                         <p>Your pattern:</p>
-                        <VerticalSquare colors={colorArray}></VerticalSquare>
+                        <TempVerticalSquare colors={colorArray}></TempVerticalSquare>
                         <Button variant="contained" onClick={sendPattern}>Submit Pattern</Button>
                     </div>
                 </Box>
